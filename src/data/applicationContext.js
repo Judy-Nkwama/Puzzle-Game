@@ -1,4 +1,5 @@
 import { createContext, useReducer } from "react";
+import { LinkedList } from "../utilities/gameLogic";
 
 const initialAppStates = {
     bg_image: {
@@ -6,14 +7,8 @@ const initialAppStates = {
         errorMessage: "",
         isValid: undefined
     },
-    puzzel_bloks_bgs: {
-        value: null,
-        errorMessage: "",
-        isValid: undefined
-    },
-    current_screen: {
-        value: null
-    }
+    gamme_linked_list: new LinkedList(),
+    current_screen: null
 };
 
 export const CreateAppContext = createContext({
@@ -24,14 +19,16 @@ export const CreateAppContext = createContext({
 const createAppContextReducer = (state, action) => {
     switch (action.type) {
         case "handleFieldChange": {
-            return {
-                ...state,
-                [action.payload.name]: {
-                    value: action.payload.value,
-                    errorMessage: "",
-                    isValid: undefined
-                }
-            };
+            if (action.payload.name == "bg_image") {
+                return {
+                    ...state,
+                    bg_image: {
+                        value: action.payload.value,
+                        errorMessage: "",
+                        isValid: undefined
+                    }
+                };
+            }else return ({ ...state, [action.payload.name]: action.payload.value});
         }
         default: return state;
     }
