@@ -1,10 +1,12 @@
 import { useState, useCallback, useEffect, useRef, useLayoutEffect } from "react";
 import getCroppedImg, { getFormatedFileSize, isFileValidType } from '../utilities/image_process_utilities';
 import { Button, FormGroup, Input, Row, Spinner } from "reactstrap";
+import { LinkedList } from "../utilities/gameLogic";
 import ClassicModal from "../components/ClassicModal";
 import Cropper from "react-easy-crop";
 import Icon from "../components/Icon";
 import PictureSelectPreviewer from "../components/PictureSelectPreviewer";
+import config from "../constants/config";
 
 const initialValue = {
     croppedImage: null,
@@ -82,28 +84,36 @@ const PictureSelectionScreen = ({
             setIsCropping(true); // a feedback for UX when cropping big file
 
             // croppig the 16 puzzel bloks image url. Yani, dived the user selected image zone per 16 part for the 16 bloks
-            
-            let pzlBlksUrls = [];
+        
             let currentBlkUrlData;
             let currentBlkAreaPixels;
+            let urlsLinkedList = new LinkedList();
 
-            const szUnity = croppedAreaPixels.width / 4; // we need 4 equal blocks, so 1 blk is total width / 4
-            let k = 0;
-            for (let i = 0; i < 4; i++) {
-                for (let j = 0; j < 4; j++) {
+            const pzlDim = config.PUZZEL_BLOCKS_PER_ROW;
+            const szUnity = croppedAreaPixels.width / pzlDim; // we need "pzlDim" equal blocks, so 1 blk is total width / pzlDim
+            for (let i = 0; i < pzlDim; i++) {
+                for (let j = 0; j < pzlDim; j++) {
                     currentBlkAreaPixels = {
                         width: szUnity,
                         height: szUnity,
                         x: croppedAreaPixels.x + (szUnity * j), // we advance (j*szUnity) Pixels to the right
                         y: croppedAreaPixels.y + (szUnity * i) // we advance (i*szUnity) Pixels to the bottom
                     };
+
+                    // creating the puzzelBlock_yx url
                     currentBlkUrlData = await getCroppedImg(value.selectedImage.url, currentBlkAreaPixels, rotation);
-                    pzlBlksUrls[k++] = currentBlkUrlData.croppedImageUrl;
+                    
+                    // Adding to the linkedList
+                    urlsLinkedList.addElement(currentBlkUrlData.croppedImageUrl);
                 }
             }
 
-            handleFieldChange("puzzel_bloks_bgs", pzlBlksUrls);
+            // Activate the mixed version of the list
+            urlsLinkedList.genMixedList();
 
+            // updating the urls_linked_list
+            handleFieldChange("gamme_linked_list", urlsLinkedList);
+            
             // -- End 
 
             // Croppping full image for preview

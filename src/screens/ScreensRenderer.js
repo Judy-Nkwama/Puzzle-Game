@@ -8,10 +8,10 @@ import GameScreen from "./GameScreen";
 
 const ScreensRenderer = () => {
 
-    const { bg_image, puzzel_bloks_bgs, current_screen, handleFieldChange } = useContext(CreateAppContext);
+    const { bg_image, urls_linked_list_in_process, current_screen, handleFieldChange } = useContext(CreateAppContext);
 
     let CurrentScreen;
-    switch (current_screen.value) {
+    switch (current_screen) {
         case "GameScreen": CurrentScreen = <GameScreen />; break;
         default: CurrentScreen =
             <PictureSelectionScreen
@@ -21,7 +21,7 @@ const ScreensRenderer = () => {
                 value={bg_image.value}
                 // puzzel_bloks_bgs={puzzel_bloks_bgs.value}
                 handleFieldChange={handleFieldChange}
-                valid={/* bg_image.isValid */ bg_image.value && puzzel_bloks_bgs.value}
+                valid={ !!bg_image?.value && !!urls_linked_list_in_process}
                 feedback={bg_image.errorMessage}
                 description=""
             />

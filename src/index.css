@@ -11,13 +11,6 @@ body {
 	height: 100%;
 }
 
-.pzl-blk {
-	width: 100px;
-	height: 100px;
-
-}
-
-.pzl-table {
-	width: 500px;
-	height: 500px;
+.border-dashed {
+	border: 3px dashed rgb(119, 43, 226);
 }
