@@ -181,7 +181,7 @@ export class LinkedList {
                     this.score += config.SUCCESS_HAMLE_GAIN;
                 } else {
                     if(this.score > 0) this.score += config.FAIL_HAMLE_LOST;
-                    if (this.score < 0) this.score = 0;
+                    if (this.score < 0) this.score += config.FAIL_HAMLE_LOST;
                 }
 
                 // - return the list's current state to allow React render screens.
