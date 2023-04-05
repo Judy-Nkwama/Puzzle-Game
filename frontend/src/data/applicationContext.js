@@ -41,6 +41,8 @@ const CreateAppContextProvider = ({ children }) => {
     initialAppStates
   );
   const [darkTheme, setDarkTheme] = useState(true);
+  const [username, setUsername] = useState('');
+  const [isUsernameEntered, setIsUsernameEntered] = useState(false);
 
   const handleFieldChange = (name, value) => {
     dispatch({ type: "handleFieldChange", payload: { name, value } });
@@ -54,6 +56,10 @@ const CreateAppContextProvider = ({ children }) => {
     handleFieldChange,
     darkTheme,
     changeTheme,
+    username,
+    setUsername,
+    isUsernameEntered,
+    setIsUsernameEntered
   };
 
   return (

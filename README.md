@@ -20,7 +20,7 @@ Design prototype: [https://balsamiq.cloud/s5vql3b/pwist2r/rB634]
 - Implement asli's UI part2(System default image selection screen) [*@Nazir20*](https://github.com/nazir20/) and [*@Asli*](https://github.com/AsliBozkurt/) :white_check_mark:
 - Complete System's default image selection screen and integrate it to the MAIN branch [*@Nazir*](https://github.com/nazir20/) :hourglass_flowing_sand:
 - Implement Game logic (Pzl blocks swapping, score incrementation or decreamentation, wining or losing) [*@Judy*](https://github.com/Judy-Nkwama/) :white_check_mark:
-- Implement Game data (score, user info, best score..) reading and writing form .txt file [*@Asli*](https://github.com/AsliBozkurt/) :hourglass_flowing_sand:
+- Implement Game data (score, user info, best score..) reading and writing form .txt file [*@Nazir*](https://github.com/nazir20/) :white_check_mark:
 - Work on game scenarios [*@Nazir*](https://github.com/nazir20/) :hourglass_flowing_sand:
 - Implement game levels [*@Judy*](https://github.com/Judy-Nkwama/) :hourglass_flowing_sand:
 - Prepare documentations [*@Asli*](https://github.com/AsliBozkurt/) :hourglass_flowing_sand:
