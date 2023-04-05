@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Row, Col } from "reactstrap";
 import PictureSelectionScreen from "./PictureSelectionScreen";
 
@@ -35,7 +35,7 @@ const ScreensRenderer = () => {
         />
       );
   }
-
+  
   return (
     <Row className="h-100 d-flex flex-column m-0">
       <Col className="flex-grow-0 m-1">

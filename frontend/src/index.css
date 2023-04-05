@@ -97,6 +97,28 @@ body {
 	border: none;
 }
 
+.select-name input{
+	padding: 5px 10px;
+	border: none;
+	border-radius: 7px;
+	outline: none;
+	background-color: #ECF2FF;
+}
+
+.select-name button{
+	border: none;
+	padding: 5px 10px;
+	border-radius: 7px;
+	margin-left: 10px;
+	background-color: #74EBD5;
+	background-image: linear-gradient(90deg, #74EBD5 0%, #9FACE6 100%);
+}
+
+.darkTheme .select-name input{
+	background-color: #393E46;
+	color: #ECF2FF;
+}
+
 .result-div {
 	background-color: #F7F7F7;
 	border-radius: 4px;
@@ -119,6 +141,37 @@ body {
 	backdrop-filter: blur(5px);
 }
 
+.records{
+	margin-top: 30px;
+	padding: 5px;
+	border-radius: 4px;
+}
+.darkTheme .records{
+	background-color: rgba(255, 255, 255, 0.104);
+	backdrop-filter: blur(5px);
+}
+.records p{
+	font-size: 13px;
+	margin: 0;
+	padding: 0;
+}
+.darkTheme .records .record-child{
+	background-color: #393E46;
+	border-radius: 4px;
+	padding: 4px;
+	margin: 5px 0;
+}
+
+.play-again-btn{
+	border: none;
+	outline: none;
+	background-color: #74EBD5;
+	background-image: linear-gradient(90deg, #74EBD5 0%, #9FACE6 100%);
+	border-radius: 10px;
+	padding: 5px 15px;
+	color: #fff;
+	margin-top: 20px;
+}
 /**/
 
 #root {

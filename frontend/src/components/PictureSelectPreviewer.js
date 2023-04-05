@@ -3,7 +3,7 @@ import { getFormatedFileSize } from "../utilities/image_process_utilities";
 import { Button, Col } from "reactstrap";
 import ButtonableIconOpacityColored from "./ButtonableIconOpacityColored";
 import Icon from "./Icon";
-
+import {useGlobalContext} from '../data/applicationContext';
 import { CreateAppContext } from "../data/applicationContext";
 
 const PictureSelectPreviewer = ({ fileObject, onDelete, onEdit }) => {
@@ -22,6 +22,21 @@ const PictureSelectPreviewer = ({ fileObject, onDelete, onEdit }) => {
     <Icon iconName="file-image-o text-blue" faSize="2x" />
   );
 
+  /**
+   * 
+   * 
+   * 
+   * 
+   */
+    const {username, setUsername, isUsernameEntered, setIsUsernameEntered} = useGlobalContext();
+    const handleSubmit = (e)=>{
+      e.preventDefault();
+      setIsUsernameEntered(true);
+    }
+  /**
+   * 
+   * 
+   */
   return (
     <Col className="p-3">
       <div className="d-flex justify-content-center align-items-stretch">
@@ -58,10 +73,26 @@ const PictureSelectPreviewer = ({ fileObject, onDelete, onEdit }) => {
             .toUpperCase()} - ${getFormatedFileSize(fileObject.size)}`}
         </div>
 
+        <div className="select-name">
+          <form onSubmit={handleSubmit}>
+            <input
+              type="text"
+              placeholder="İsminizi giriniz..."
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              required
+              disabled={isUsernameEntered}
+            />
+            <button className="" type="submit" disabled={isUsernameEntered}>
+              Onay
+            </button>
+          </form>
+        </div>
         <Button
           size="sm"
           className="my-4 mix-start-btn"
           onClick={() => handleFieldChange("current_screen", "GameScreen")}
+          disabled={!isUsernameEntered}
         >
           <span className="p-1">Karıştır ve Başlat</span>
         </Button>
