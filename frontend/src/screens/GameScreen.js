@@ -6,6 +6,7 @@ import { CreateAppContext } from "../data/applicationContext";
 import PuzzelBlock from "../components/PuzzelBlock";
 import config from "../constants/config";
 
+
 const GameScreen = ({ name, value }) => {
 
 	const { username } = useGlobalContext();
@@ -13,7 +14,7 @@ const GameScreen = ({ name, value }) => {
 
 	const fetchData = async () => {
 		try {
-			const response = await fetch("/api");
+			const response = await fetch("/api/v1/get-users-data");
 			const data = await response.json();
 			const newRecords = data[0].sort((a, b) => b.score - a.score);
 			setRecord(newRecords);
@@ -27,7 +28,7 @@ const GameScreen = ({ name, value }) => {
 	}, []);
 
 	const sendData = () => {
-		fetch("/api/data", {
+		fetch("/api/v1/save/users-data", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
@@ -119,89 +120,82 @@ const GameScreen = ({ name, value }) => {
 	});
 
 	return (
-		<Row className="d-flex justify-content-center align-items-center h-100 m-0 p-0">
-			<div className="d-flex justify-content-between">
-				<div className="d-flex flex-column flex-grow-0 result-div p-3">
-					<span>
-						<i className="fas fa-plus"></i>
-						<span className="title">Oyuncu:</span> {username}
-					</span>
-					<span>
-						<i className="fas fa-plus"></i>
-						<span className="title">Skor:</span> {gamme_linked_list.score}
-					</span>
+    <Row className="d-flex justify-content-center align-items-center h-100 m-0 p-0">
+      <div className="d-flex justify-content-between">
+        <div className="d-flex flex-column flex-grow-0 result-div p-3">
+          <span>
+            <i className="fas fa-plus"></i>
+            <span className="title">Oyuncu:</span> {username}
+          </span>
+          <span>
+            <i className="fas fa-plus"></i>
+            <span className="title">Skor:</span> {gamme_linked_list.score}
+          </span>
 
-					<span>
-						<i className="fas fa-plus"></i>
-						<span className="title">Hamle Sayısı:</span>
-						{gamme_linked_list.hamleNumber}
-					</span>
-					<span>
-						<i className="fas fa-plus"></i>
-						<span className="title">Zaman</span>: { }
-					</span>
+          <span>
+            <i className="fas fa-plus"></i>
+            <span className="title">Hamle Sayısı:</span>
+            {gamme_linked_list.hamleNumber}
+          </span>
 
-					<div className="records">
-						<h6 style={{ color: "#FF597B" }}>
-							Kullancıların Aldığı En Yüksek Skorlar
-						</h6>
-						{records.map((record) => {
-							return (
-								<div className="record-child">
-									<p>
-										<i
-											className="fas fa-user"
-											style={{ color: "#0081B4", paddingRight: "5px" }}
-										></i>
-										{record.username}
-									</p>
-									<p>Hareket Sayısı: {record.move}</p>
-									<p>
-										<i
-											className="fas fa-star"
-											style={{ color: "#FFEA20" }}
-										></i>
-										Skor: {record.score}
-									</p>
-								</div>
-							);
-						})}
-					</div>
-				</div>
-				<div
-					className="d-flex flex-wrap align-content-center justify-content-center align-items-start"
-					style={{
-						width: config.PUZZEL_TABLE_SIZE,
-						height: config.PUZZEL_TABLE_SIZE,
-					}}
-				>
-					{pzlBlks}
+          <div className="records">
+            <h6 style={{ color: "#FF597B" }}>
+              Kullancıların Aldığı En Yüksek Skorlar
+            </h6>
+            {records.map((record) => {
+              return (
+                <div className="record-child">
+                  <p>
+                    <i
+                      className="fas fa-user"
+                      style={{ color: "#0081B4", paddingRight: "5px" }}
+                    ></i>
+                    {record.username}
+                  </p>
+                  <p>Hareket Sayısı: {record.move}</p>
+                  <p>
+                    <i className="fas fa-star" style={{ color: "#FFEA20" }}></i>
+                    Skor: {record.score}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+        <div
+          className="d-flex flex-wrap align-content-center justify-content-center align-items-start"
+          style={{
+            width: config.PUZZEL_TABLE_SIZE,
+            height: config.PUZZEL_TABLE_SIZE,
+          }}
+        >
+          {pzlBlks}
 
-					{gamme_linked_list.isGameFinished() && (
-						<>
-							<button className="play-again-btn me-3" onClick={finish_the_game}>
-								Bitir
-							</button>
-							<button className="play-again-btn" onClick={go_to_next_level}>
-								Devam
-							</button>
-						</>
-					)}
-				</div>
-				<div className="text-center">
-					<img
-						className="d-block"
-						alt=""
-						src={bg_image.value.croppedImage}
-						style={{ objectFit: "contain", width: 150 }}
-					/>
-					<span>
-						<span style={{ color: "#E7B10A" }}>Level:</span> {level} (
-						{puzzel_blocks_per_row}x{puzzel_blocks_per_row})
-					</span>
-				</div>
-			</div>
-		</Row>
-	);
+          {gamme_linked_list.isGameFinished() && (
+            <>
+              <button className="play-again-btn me-3" onClick={finish_the_game}>
+                Bitir
+              </button>
+              <button className="play-again-btn" onClick={go_to_next_level}>
+                Devam
+              </button>
+            </>
+          )}
+        </div>
+        <div className="text-center">
+          <img
+            className="d-block"
+            alt=""
+            src={bg_image.value.croppedImage}
+            style={{ objectFit: "contain", width: 150 }}
+          />
+          <span>
+            <span style={{ color: "#E7B10A" }}>Level:</span> {level} (
+            {puzzel_blocks_per_row}x{puzzel_blocks_per_row})
+          </span>
+        </div>
+      </div>
+    </Row>
+  );
 };
 export default GameScreen;

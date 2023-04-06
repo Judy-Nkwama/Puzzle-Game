@@ -10,7 +10,7 @@ app.get("/", (req, res) => {
 });
 
 
-app.get("/api", (req, res) => {
+app.get("/api/v1/get-users-data", (req, res) => {
   fs.readFile("enyuksekscore.txt", "utf-8", (err, data) => {
     if (err) {
       console.error(err);
@@ -30,7 +30,7 @@ app.get("/api", (req, res) => {
 });
 
 
-app.post("/api/data", (req, res) => {
+app.post("/api/v1/save/users-data", (req, res) => {
   const data = req.body;
 
   if (!data.username || !data.score) {
