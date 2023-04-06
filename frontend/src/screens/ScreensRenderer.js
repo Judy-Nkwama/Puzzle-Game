@@ -1,10 +1,9 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { Row, Col } from "reactstrap";
-import PictureSelectionScreen from "./PictureSelectionScreen";
-
 import { CreateAppContext } from "../data/applicationContext";
-import GameScreen from "./GameScreen";
 import { useGlobalContext } from "../data/applicationContext";
+import PictureSelectionScreen from "./PictureSelectionScreen";
+import GameScreen from "./GameScreen";
 
 const ScreensRenderer = () => {
   const {
@@ -18,7 +17,10 @@ const ScreensRenderer = () => {
   let CurrentScreen;
   switch (current_screen) {
     case "GameScreen":
-      CurrentScreen = <GameScreen />;
+      CurrentScreen = <GameScreen
+        name="bg_image"
+        value={bg_image.value}
+      />;
       break;
     default:
       CurrentScreen = (
@@ -35,7 +37,7 @@ const ScreensRenderer = () => {
         />
       );
   }
-  
+
   return (
     <Row className="h-100 d-flex flex-column m-0">
       <Col className="flex-grow-0 m-1">

@@ -9,6 +9,8 @@ const initialAppStates = {
   },
   gamme_linked_list: new LinkedList(),
   current_screen: null,
+  selected_pic_detais: null,
+  puzzel_blocks_per_row: 4
 };
 
 export const CreateAppContext = createContext({
