@@ -45,13 +45,13 @@ Design prototype: [https://balsamiq.cloud/s5vql3b/pwist2r/rB634]
 - Implement Game logic (Pzl blocks swapping, score incrementation or decreamentation, wining or losing) [*@Judy*](https://github.com/Judy-Nkwama/) :white_check_mark:
 - Implement Game data (score, user info, best score..) reading and writing form .txt file [*@Nazir*](https://github.com/nazir20/) :white_check_mark:
 - Work on game scenarios [*@Nazir*](https://github.com/nazir20/) :white_check_mark:
-- Implement game levels [*@Judy*](https://github.com/Judy-Nkwama/) :hourglass_flowing_sand:
+- Implement game levels [*@Judy*](https://github.com/Judy-Nkwama/) :white_check_mark:
 - Prepare documentations [*@Asli*](https://github.com/AsliBozkurt/) :hourglass_flowing_sand:
 - DevOps with Heroku [*@Asli*](https://github.com/AsliBozkurt/) :hourglass_flowing_sand:
 
 ### Additional Ideas
 - Game Over: the game starts with YY point. The user has to keep it > 0. if it's become 0, the game overs [*@Judy*](https://github.com/Judy-Nkwama/) :hourglass_flowing_sand:
-- Level implementation: the game start with puzzel 4x4 (level 1), continues to 6x6, 8x8 ... for higher level [*@Judy*](https://github.com/Judy-Nkwama/) and [*@Nazir*](https://github.com/nazir20/) :hourglass_flowing_sand:
+- Level implementation: the game start with puzzel 4x4 (level 1), continues to 6x6, 8x8 ... for higher level [*@Judy*](https://github.com/Judy-Nkwama/) :white_check_mark:
 
 ### Deployment 
 
