@@ -57,5 +57,40 @@ Design prototype: [https://balsamiq.cloud/s5vql3b/pwist2r/rB634]
 
 <img src="https://github.com/devicons/devicon/blob/master/icons/heroku/heroku-original-wordmark.svg" title="HEROKU" alt="HEROKU" width="90" height="90"/>&nbsp;
 
+<hr>
 
+### ⚙️ Run Locally
+<a href="https://nodejs.org/en">
+  <img src="https://github.com/devicons/devicon/blob/master/icons/nodejs/nodejs-original.svg" title="Node.js" alt="Node.js" width="30" height="30"/>&nbsp;
+</a>
+<b>Make sure that you've already installed Nodejs on your machine</b>
+<br>
 
+- Open your terminal & follow the steps as below
+- Clone the project & change directory to the cloned repo
+```bash
+git clone https://github.com/nazir20/Puzzle-Game.git
+cd Puzzle-Game
+```
+
+- change directory to backend folder inside the Puzzle Game, then install the required modules and as last run the backend
+
+```bash
+cd backend
+npm i
+npm start
+```
+- Open another terminal inside the Puzzle-Game Directory and then change directory to frontend. Then install the required modules and as last run the frontend
+
+```bash
+cd frontend
+npm i
+npm start
+```
+
+Open your favorite browser and search for the below url(Frontend runs on port 3000, backend runs on port 5000)
+```bash
+http://localhost:3000
+```
+
+And Now Enjoy the Game :)
