@@ -46,7 +46,7 @@ Design prototype: [https://balsamiq.cloud/s5vql3b/pwist2r/rB634]
 - Implement Game data (score, user info, best score..) reading and writing form .txt file [*@Nazir*](https://github.com/nazir20/) :white_check_mark:
 - Work on game scenarios [*@Nazir*](https://github.com/nazir20/) :white_check_mark:
 - Implement game levels [*@Judy*](https://github.com/Judy-Nkwama/) :white_check_mark:
-- Prepare documentations [*@Asli*](https://github.com/AsliBozkurt/) :hourglass_flowing_sand:
+- Prepare documentations [*@Asli*](https://github.com/AsliBozkurt/) :white_check_mark:
 - DevOps with Heroku [*@Asli*](https://github.com/AsliBozkurt/) :hourglass_flowing_sand:
 
 ### Additional Ideas
