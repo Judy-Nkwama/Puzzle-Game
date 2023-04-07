@@ -1,4 +1,4 @@
-# 🧩 Puzzel Game Project Grp7
+# 🧩 Puzzel Game Project Grp7 201307025_Aslı BOZKURT, 191307094_Mohammad Nazir Sharifi, 191307093_Judy Ndotoni Nkwama
 
 <img src="https://github.com/nazir20/Puzzle-Game/blob/main/frontend/public/logo.png" title="Puzzle" alt="Puzzle" width="150" height="150"/>&nbsp;
 ## 🧰 Languages & Tools
